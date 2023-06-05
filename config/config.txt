@@ -1,7 +1,7 @@
 [
     {
-        "module_name": "test",
-        "class_name": "Test"
+        "module_name": "test_module",
+        "class_name": "Testrer_module"
     }
 
 ]

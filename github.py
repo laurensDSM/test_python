@@ -4,12 +4,13 @@ import os
 import shutil
 
 class Github():
-    def __init__(self):
-        pass
+    def __init__(self,repo_url):
+        self.repo_url = repo_url
 
     def get_repo(self):
         local_directory = "temp_directory"
-        repo = git.Repo.clone_from('https://github.com/laurensDSM/python1.git', local_directory)
+        repo = git.Repo.clone_from(self.repo_url, local_directory)
+        
         response = None
         config_file_path = os.path.join(local_directory, "config", "config.txt")
         if os.path.exists(config_file_path):

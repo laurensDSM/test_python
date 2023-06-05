@@ -1,0 +1,6 @@
+[
+    {
+        "module_name": "aa",
+        "class_name": "Test_module"
+    }
+]

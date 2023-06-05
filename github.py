@@ -7,10 +7,10 @@ class Github():
     def __init__(self,repo_url):
         self.repo_url = repo_url
 
-    def get_repo(self):
+    def check_update(self):
+        """Controleer de remote repo op een een config """
         local_directory = "temp_directory"
         repo = git.Repo.clone_from(self.repo_url, local_directory)
-        
         response = None
         config_file_path = os.path.join(local_directory, "config", "config.txt")
         if os.path.exists(config_file_path):

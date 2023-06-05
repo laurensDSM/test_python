@@ -1,7 +1,0 @@
-[
-    {
-        "module_name": "test_module",
-        "class_name": "Testrer_module"
-    }
-
-]

@@ -1,6 +1,6 @@
 [
     {
-        "module_name": "aa",
+        "module_name": "13",
         "class_name": "Test_module"
     }
 ]

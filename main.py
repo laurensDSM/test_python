@@ -3,6 +3,8 @@ from github import Github
 import importlib
 import json
 import os
+from importlib import import_module
+
 
 def main():
 #  github = Github('https://github.com/laurensDSM/test_python.git')
@@ -16,8 +18,11 @@ def main():
             module_name = config[0]["module_name"]
             class_name = config[0]["class_name"]
 
+            # Bepaal het pad naar de module
+            module_path = f"modules.{module_name}"
+
             # Importeer de module
-            module = __import__(module_name)
+            module = import_module(module_path)
 
             # Instantieer de klasse
             my_class = getattr(module, class_name)()

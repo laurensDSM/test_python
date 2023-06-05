@@ -1,6 +1,14 @@
 from github import Github
+import pyuac
 
-github = Github("https://github.com/laurensDSM/python1/blob/master/github.py")
-print(github.get_repo())
+def main():
+    github = Github()
+    print(github.get_repo())
+
 if __name__ == "__main__":
-    pass
+    if not pyuac.isUserAdmin():
+        print("Re-launching as admin!")
+        pyuac.runAsAdmin()
+        main()
+
+

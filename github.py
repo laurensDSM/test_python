@@ -26,5 +26,26 @@ class Github():
     
     def get_config(self):
         pass
-    def log_data():
-        pass
+
+    def send_logs_to_github(self):
+
+            local_directory = "temp_directory"
+            repo = git.Repo.clone_from(self.repo_url, local_directory)
+
+            logs_directory = os.path.join(local_directory, "logs")
+            log_files = os.listdir(logs_directory)
+
+            for file_name in log_files:
+                file_path = os.path.join(logs_directory, file_name)
+                shutil.copy(file_path, local_directory)
+
+            repo.git.add(all=True)
+            repo.index.commit("Add new log entries")
+            origin = repo.remote(name="origin")
+            origin.push()
+
+            repo.close()
+            shutil.rmtree(local_directory)
+
+            return True
+            return False

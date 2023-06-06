@@ -36,8 +36,8 @@ def generate_unique_id():
     return unique_id
 
 def main():
-#  github = Github('https://github.com/laurensDSM/test_python.git')
-#   print(github.check_update())
+    github = Github('https://github.com/laurensDSM/test_python.git')
+    print(github.check_update())
     id = generate_unique_id()
     create_directory_in_logs(id)
     config_path = "config/config.txt"  # Het pad naar het configuratiebestand
@@ -70,7 +70,7 @@ def main():
 
 
 
-
+    print(github.send_logs_to_github())
 
 
 

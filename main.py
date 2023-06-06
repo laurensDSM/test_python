@@ -41,9 +41,9 @@ def main():
     id = generate_unique_id()
     create_directory_in_logs(id)
     config_path = "config/config.txt"  # Het pad naar het configuratiebestand
-    print(id)
-    print(config_path)
-    with open(config_path, "r") as config_file:
+
+    try:
+        with open(config_path, "r") as config_file:
             config = json.load(config_file)
             
             module_name = config[0]["module_name"]
@@ -60,6 +60,13 @@ def main():
 
             # Gebruik de klasse
             my_class.log_text(id)
+
+    except FileNotFoundError:
+        print("Het configuratiebestand kon niet worden gevonden.")
+    except json.JSONDecodeError:
+        print("Het configuratiebestand bevat geen geldige JSON-indeling.")
+    except IOError:
+        print("Er is een fout opgetreden bij het openen van het configuratiebestand.")
 
 
 
